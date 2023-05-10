@@ -1,0 +1,6 @@
+1. Create new Table with migrations
+2. create new Model and it's Controller
+3. create method to register customer into database
+4. create method to login customer into database
+5. Integrate Actor born in the same date with CURL or JS
+7. Start Assignment 2 بقا ان شاء الله

@@ -9,4 +9,4 @@
 7- asset this JS CSS files in blade.php Views
 8- then set Master layout using @yield and @sections
 9- create User controller by running php artisan make:controller UserController
-10- 
+10- ************Warning: We will create Custom Model without using User built in model**********
