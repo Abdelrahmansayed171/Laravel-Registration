@@ -3,6 +3,7 @@
     <div class="wrapper">
         <span class="close">X</span>
         <form action="user.html" method="post" class="form-login" enctype="multipart/form-data">
+        @csrf
         <h2>login</h2>
         <div class="input-box">
             <span class="icon">
@@ -30,13 +31,14 @@
             </p>
         </div>
         </form>
-        <form action="#" method="post" class="form-register" enctype="multipart/form-data">
+        <form action="/register" method="post" class="form-register" enctype="multipart/form-data">
+        @csrf
         <h2>Register</h2>
         <div class="input-box">
             <span class="icon">
             *
             </span>
-            <input type="text" name="fullname" id="fullName" onfocusout="fullNameValidation()" required>
+            <input type="text" name="full_name" id="fullName" onfocusout="fullNameValidation()" required>
             <p class="hint">hi</p>
             <label for="">full name</label>
         </div>
@@ -45,8 +47,12 @@
             *
             </span>
             <input type="text" name="username" id="userName" onfocusout="userNameValidation()" required>
-            <img src="imgs/cancel-error-svgrepo-com.svg" class="false hide" alt="">
-            <img src="imgs/confirm-svgrepo-com.svg" class="true hide"  alt="">
+            {{-- <img src="imgs/cancel-error-svgrepo-com.svg" class="false hide" alt=""> --}}
+            <img src="{{ asset('images/cancel-error-svgrepo-com.svg') }}" class="false hide" alt="">
+
+            {{-- <img src="imgs/confirm-svgrepo-com.svg" class="true hide"  alt=""> --}}
+            <img src="{{ asset('images/confirm-svgrepo-com.svg') }}" class="true hide"  alt="">
+
             <!-- <p class="hint">hi</p> -->
             <label for="">user name</label>
         </div>

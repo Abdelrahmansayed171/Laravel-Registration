@@ -3,6 +3,10 @@
 
 2- rename appName in .env and database connection
 3- create database and user then grants privilages from phpmyadmin
-4- create tables of the database by editing database -> migrations
-5- then php artisan migrate
-6- 
+4- Edit User built in migrations file then update the User Model in User.php 
+5- then php artisan migrate, as we've changed migrations
+6- create JS & CSS folders in public
+7- asset this JS CSS files in blade.php Views
+8- then set Master layout using @yield and @sections
+9- create User controller by running php artisan make:controller UserController
+10- 
