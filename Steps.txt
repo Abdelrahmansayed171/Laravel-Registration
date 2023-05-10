@@ -1,0 +1,8 @@
+1- create laravel project in htdocs xampp folder
+    using laravel new <Name of the project>
+
+2- rename appName in .env and database connection
+3- create database and user then grants privilages from phpmyadmin
+4- create tables of the database by editing database -> migrations
+5- then php artisan migrate
+6- 
