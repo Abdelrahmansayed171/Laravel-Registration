@@ -1,3 +1,5 @@
+@extends('layouts.master')
+@section('content')
 <h1>Welcome, {{$customer['full_name']}}! </h1>
 <div>
     Email: {{$customer['email']}}
@@ -14,3 +16,4 @@
 <div>
     DOB: {{$customer['birthdate']}}
 </div>
+@endsection
