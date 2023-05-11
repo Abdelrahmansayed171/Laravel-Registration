@@ -2,7 +2,7 @@
 @section('content')
     <div class="wrapper">
         <span class="close">X</span>
-        <form action="user.html" method="post" class="form-login" enctype="multipart/form-data">
+        <form action="/authenticate" method="post" class="form-login" enctype="multipart/form-data">
         @csrf
         <h2>login</h2>
         <div class="input-box">
@@ -31,6 +31,7 @@
             </p>
         </div>
         </form>
+
         <form action="/register" method="post" class="form-register" enctype="multipart/form-data">
         @csrf
         <h2>Register</h2>

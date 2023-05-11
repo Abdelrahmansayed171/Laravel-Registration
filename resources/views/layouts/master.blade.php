@@ -11,6 +11,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
         <!-- end google font link -->
         <!-- style -->
+        {{-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> --}}
+        
         <link rel="stylesheet" href="{{ asset('css/form.css') }}">
         <link rel="stylesheet" href="{{ asset('css/headerStyle.css') }}">
         <link rel="stylesheet" href="{{ asset('css/footerStyle.css') }}">
