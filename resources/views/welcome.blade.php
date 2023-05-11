@@ -48,5 +48,25 @@
         </button>
         </form>
     </div>
+    <br>
+    <br>
+    <div>
+        <form action="/authenticate" method="post" class="form-register" enctype="multipart/form-data">
+            @csrf
+            <h2>Login</h2>
+            <div>
+                
+                <input type="email" name="email">
+            </div>
+            
+            <div >
+                <input type="password" name="password"">
+            </div>
+            
+            <button type="submit" name="submit" value="authenticate">
+                Login
+            </button>
+        </form>
+    </div>
 </body>
 </html>

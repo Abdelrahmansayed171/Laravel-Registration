@@ -19,6 +19,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/error404', function () {
+    return view('error404');
+});
+
+Route::get('customer/{id}', function($id){
+    return view('customer', [
+        'customer' => Customer::find($id)
+    ]);
+});
+
+
 Route::post('/register', function (Request $request) {
     // dd($request);
     $validatedData = $request->validate([
@@ -30,8 +41,32 @@ Route::post('/register', function (Request $request) {
         'address' => ['required'],
         'password' => ['required', 'min:8'],
     ]);
-
-    // dd($validatedData);
-
     Customer::create($validatedData);
+    $customer = Customer::where('email', $validatedData['email'] )->first();
+    return redirect('/customer/'. $customer->id);
 });
+
+
+Route::post('/authenticate', function (Request $request) {
+    // dd($request);
+    $validatedData = $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required'],
+    ]);
+
+    $customer = Customer::where('email', $validatedData['email'] )
+    ->where('password', $validatedData['password'])
+    ->first();
+    
+    if($customer){
+        return redirect('/customer/'. $customer->id);
+    }
+    else{
+        return redirect('/error404');
+    }
+});
+
+
+
+
+
