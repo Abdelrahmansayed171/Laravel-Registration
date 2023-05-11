@@ -223,7 +223,8 @@ button.addEventListener("click", function () {
     console.log(month);
     console.log(day);
     popupApi.style.right = "100px";
-    xhttp.open("POST", "API_Ops.php", true);
+    // xhttp.open("POST", "API_Ops.php", true);
+    xhttp.open("POST", "/api/actors", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("month=" + month + "&day=" + day);
 

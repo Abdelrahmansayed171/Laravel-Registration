@@ -38,3 +38,6 @@
 7. run >> php artisan migrate:refresh --seed
 8. Create plain HTML Form with Post Method and recieve form fields from web.php
 9. validate attributes and create Customer
+10. Then Drag and drop the layout and forms  create CSS/JS/Images in Public Folder
+11. change locations of files into asset form 
+12. create a route in api.php and make AJAX request POST to /api/actors
