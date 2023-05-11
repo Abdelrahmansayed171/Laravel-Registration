@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Models\Customer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/register',[ UserController::class, 'register' ]);
+Route::post('/register', function (Request $request) {
+    // dd($request);
+    $validatedData = $request->validate([
+        'full_name' => ['required', 'min:3'],
+        'username' => ['required', 'unique:customers,username'],
+        'email' => ['required', 'email', 'unique:customers,email'],
+        'birthdate' => ['required', 'date'],
+        'phone' => ['required', 'numeric'],
+        'address' => ['required'],
+        'password' => ['required', 'min:8'],
+    ]);
 
+    // dd($validatedData);
 
-//Log In
-Route::post('/login', [UserController::class, 'login']);
+    Customer::create($validatedData);
+});

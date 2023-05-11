@@ -1,12 +1,40 @@
-1- create laravel project in htdocs xampp folder
-    using laravel new <Name of the project>
+1. Open CMD >> mysql -u root >> CREATE DATABASES assignment2; >> SHOW DATABASES; >> exit
+2. create New Table php artisan make:migration create_customers_table
+3. add fields of customers tablein database migration
+4. run >>  php artisan migrate
+5. create model >> php artisan make:model Customer *lma haycreate el Model hayla2ee Table Customer fi el database, So, it will know that Model for This Table*
+6. create records in DatabaseSeeder using >>
+    
+        Customer::create([
+            'full_name' => 'Abdelrahman Sayed',
+            'username' => 'Orca',
+            'email' => 'orcawy@gmail.com',
+            'password' => '12345678',
+            'address' => 'Giza',
+            'birthdate' => '2002-09-23',
+            'phone' => '01128717264'
+        ]);
 
-2- rename appName in .env and database connection
-3- create database and user then grants privilages from phpmyadmin
-4- Edit User built in migrations file then update the User Model in User.php 
-5- then php artisan migrate, as we've changed migrations
-6- create JS & CSS folders in public
-7- asset this JS CSS files in blade.php Views
-8- then set Master layout using @yield and @sections
-9- create User controller by running php artisan make:controller UserController
-10- ************Warning: We will create Custom Model without using User built in model**********
+        Customer::create([
+            'full_name' => 'Seif El-Din Mohammed',
+            'username' => 'Luci',
+            'email' => 'Lucifer@gmail.com',
+            'password' => '12345678',
+            'address' => 'Cairo',
+            'birthdate' => '2002-09-27',
+            'phone' => '01533717264'
+        ]);
+
+        Customer::create([
+            'full_name' => 'omar Sayed',
+            'username' => 'Eummar',
+            'email' => 'Eummar@gmail.com',
+            'password' => '12345678',
+            'address' => 'Giza',
+            'birthdate' => '2006-03-23',
+            'phone' => '01533777264'
+        ]);
+
+7. run >> php artisan migrate:refresh --seed
+8. Create plain HTML Form with Post Method and recieve form fields from web.php
+9. validate attributes and create Customer
