@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,26 @@ Route::post('/actors', function(Request $request){
 
     return response()->json(GetNames($month,$day));
 });
+
+
+Route::post('/username', function(Request $request){
+    
+    $userName = $request['userName'];
+    // error_log($month);
+    error_log($userName);
+
+    $username = Customer::where('username', $userName )->first();
+
+    if($username){
+        return response()->json("f");      
+    }
+    else{
+        return response()->json("t");
+    }
+
+});
+
+
 
 
 

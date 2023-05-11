@@ -265,7 +265,7 @@ function AJAXSerNameValidation() {
       }
     }
   };
-  xhttp.open("POST", "DB_Ops.php", true);
+  xhttp.open("POST", "/api/username", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("userName=" + uName);
 }
