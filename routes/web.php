@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,64 +27,20 @@ Route::get('/error404', function () {
     return view('error404');
 });
 
-Route::get('customer/{id}', function($id){
-    return view('customer', [
-        'customer' => Customer::find($id)
-    ]);
-});
+Route::get('customer/{id}', [CustomerController::class, 'show']);
 
 Route::get('/sendmail/{username}', [MailController::class, 'sendMail']);
 
 
 
-Route::get('/changelang', function(){
-    if (App::isLocale('en')) {
-        session()->put('locale', 'ar');
-    }
-    else{
-        session()->put('locale', 'en');
-    }
-
-    return redirect()->back();
-});
+Route::get('/changelang', [LanguageController::class, 'change']);
 
 
 
-Route::post('/register', function (Request $request) {
-    // dd($request);
-    $validatedData = $request->validate([
-        'full_name' => ['required', 'min:3'],
-        'username' => ['required', 'unique:customers,username'],
-        'email' => ['required', 'email', 'unique:customers,email'],
-        'birthdate' => ['required', 'date'],
-        'phone' => ['required', 'numeric'],
-        'address' => ['required'],
-        'password' => ['required', 'min:8'],
-    ]);
-    Customer::create($validatedData);
-    $customer = Customer::where('email', $validatedData['email'] )->first();
-    return redirect('/sendmail/'. $customer->username);
-});
+Route::post('/register', [CustomerController::class, 'register']);
 
 
-Route::post('/authenticate', function (Request $request) {
-    // dd($request);
-    $validatedData = $request->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required'],
-    ]);
-
-    $customer = Customer::where('email', $validatedData['email'] )
-    ->where('password', $validatedData['password'])
-    ->first();
-    
-    if($customer){
-        return redirect('/customer/'. $customer->id);
-    }
-    else{
-        return redirect('/error404');
-    }
-});
+Route::post('/authenticate', [CustomerController::class, 'authenticate']);
 
 
 

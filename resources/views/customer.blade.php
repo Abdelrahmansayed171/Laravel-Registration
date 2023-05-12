@@ -2,18 +2,18 @@
 @section('content')
 <h1>Welcome, {{$customer['full_name']}}! </h1>
 <div>
-    Email: {{$customer['email']}}
+    {{ __('customer.email') }}: {{$customer['email']}}
 </div>
 <div>
-    username: {{$customer['username']}}
+    {{ __('customer.username') }}: {{$customer['username']}}
 </div>
 <div>
-    phone Numer: {{$customer['phone']}}
+    {{ __('customer.phone') }}: {{$customer['phone']}}
 </div>
 <div>
-    address: {{$customer['address']}}
+    {{ __('customer.address') }}: {{$customer['address']}}
 </div>
 <div>
-    DOB: {{$customer['birthdate']}}
+    {{ __('customer.dob') }}: {{$customer['birthdate']}}
 </div>
 @endsection
