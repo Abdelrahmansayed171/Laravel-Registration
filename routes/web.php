@@ -2,6 +2,7 @@
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 
@@ -28,6 +29,21 @@ Route::get('customer/{id}', function($id){
     return view('customer', [
         'customer' => Customer::find($id)
     ]);
+});
+
+Route::get('/sendmail/{username}', [MailController::class, 'sendMail']);
+
+
+
+Route::get('/changelang', function(){
+    if (App::isLocale('en')) {
+        session()->put('locale', 'ar');
+    }
+    else{
+        session()->put('locale', 'en');
+    }
+
+    return redirect()->back();
 });
 
 
@@ -68,7 +84,6 @@ Route::post('/authenticate', function (Request $request) {
     }
 });
 
-Route::get('/sendmail/{username}', [MailController::class, 'sendMail']);
 
 
 

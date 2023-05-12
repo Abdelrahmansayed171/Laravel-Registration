@@ -68,3 +68,16 @@
         6. php artisan make:test RegisterTest
         7. Create test function then 
         8. php artisan test
+
+16. Support bilingual Laravel Project (Localization)
+        1. php artisan lang:publish
+        2. create folder for Arabic language called 'ar'
+        3. create files carry keys with it's values
+        4. update in blade.php views the plain values to language notification
+        5. Test each language by change locale in config/app.php
+        6. create a middleware 
+        7. php artisan make:middleware ChangeLanguage
+        8. define this middleware in kernel.php 
+        9. create route /changelang that put variable locale with value 'en' or 'en' in ** Session **
+        10. create button that call /changelang every click
+        11. middleware check in locale key in **Session** and convert language according to it.

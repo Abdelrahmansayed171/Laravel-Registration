@@ -96,7 +96,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'en', // If a word has no translation it will show it in 'en'
 
     /*
     |--------------------------------------------------------------------------

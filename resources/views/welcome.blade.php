@@ -4,44 +4,44 @@
         <span class="close">X</span>
         <form action="/authenticate" method="post" class="form-login" enctype="multipart/form-data">
         @csrf
-        <h2>login</h2>
+        <h2>{{__('login.header')}}</h2>
         <div class="input-box">
             <span class="icon">
             *
             </span>
             <input type="email" name="email" required>
-            <label for="">email</label>
+            <label for="">{{__('login.email')}}</label>
         </div>
         <div class="input-box">
             <span class="icon">
             *
             </span>
             <input type="password" name="password" required minlength="8" maxlength="16">
-            <label for="">password</label>
+            <label for="">{{__('login.password')}}</label>
         </div>
         <div class="remember">
-            <label><input type="checkbox">Remember me</label>
-            <a href="#">Forgot password ?</a>
+            <label><input type="checkbox">{{__('login.remember')}}</label>
+            <a href="#">{{__('login.warning')}}</a>
         </div>
         <button type="submit" name="loginSubmit" class="loginBtn">Login</button>
         <div class="register">
             <p>
-            Don`t have an account?
-            <a href="#" class="register-link">Register</a>
+                {{__('login.ending')}}
+            <a href="#" class="register-link">{{__('login.button')}}</a>
             </p>
         </div>
         </form>
 
         <form action="/register" method="post" class="form-register" enctype="multipart/form-data">
         @csrf
-        <h2>Register</h2>
+        <h2>{{__('register.header')}}</h2>
         <div class="input-box">
             <span class="icon">
             *
             </span>
             <input type="text" name="full_name" id="fullName" onfocusout="fullNameValidation()" required>
             <p class="hint">hi</p>
-            <label for="">full name</label>
+            <label for="">{{__('register.fullname')}}</label>
         </div>
         <div class="input-box">
             <span class="icon">
@@ -55,7 +55,7 @@
             <img src="{{ asset('images/confirm-svgrepo-com.svg') }}" class="true hide"  alt="">
 
             <!-- <p class="hint">hi</p> -->
-            <label for="">user name</label>
+            <label for="">{{__('register.username')}}</label>
         </div>
         <div class="input-box">
             <span class="icon">
@@ -63,7 +63,7 @@
             </span>
             <input type="email" name="email" id="email" onfocusout="emailValidation()" required>
             <p class="hint">hi</p>
-            <label for="">email</label>
+            <label for="">{{__('register.email')}}</label>
         </div>
         <div class="input-box">
             <span class="icon">
@@ -71,7 +71,7 @@
             </span>
             <input type="date" id="birthdate" name="birthdate" onfocusout="dateValidation()" required>
             <p class="hint">hi</p>        
-            <span class="IMDPAPIBtn">actors</span>
+            <span class="IMDPAPIBtn">{{__('register.actors')}}</span>
         </div>
         <div class="input-box">
             <span class="icon">
@@ -79,7 +79,7 @@
             </span>
             <input type="text" name="phone" id="phone" required minlength="11" maxlength="11" onfocusout="phoneValidation()"> 
             <p class="hint"></p>
-            <label for="">phone</label>
+            <label for="">{{__('register.phone')}}</label>
         </div>
         <div class="input-box">
             <span class="icon">
@@ -87,7 +87,7 @@
             </span>
             <input type="text" name="address" id="address" required onfocusout="addressValidation()">
             <p class="hint"></p>
-            <label for="">address</label>
+            <label for="">{{__('register.address')}}</label>
         </div>
         <div class="input-box">
             <span class="icon">
@@ -95,7 +95,7 @@
             </span>
             <input type="password" name="password" id="password" required minlength="8" maxlength="16" onfocusout="passwordValidation()">
             <p class="hint">hi</p>
-            <label for="">password</label>
+            <label for="">{{__('register.password')}}</label>
         </div>
         <div class="input-box">
             <span class="icon">
@@ -103,17 +103,18 @@
             </span>
             <input type="password" name="passwordRepeat" id="confirmPassword" required minlength="4" maxlength="10" onfocusout="confirmPasswordValidation()">
             <p class="hint">hi</p>
-            <label for="">confirm password</label>
+            <label for="">{{__('register.confirmpassword')}}</label>
         </div>
         <div class="input-box">
             <input type="file" class="custom-file-input" id="select_image" name="image" onchange="putImage()" />
         </div>
-        <button type="submit" class="registerBtn" name="submit" value="Register">Register
+        <button type="submit" class="registerBtn" name="submit" value="Register">
+            {{__('register.button')}}
         </button>
         <div class="login">
             <p>
-            have an account?
-            <a href="#" class="login-link">Login</a>
+                {{__('register.ending')}}
+            <a href="#" class="login-link">{{__('register.link')}}</a>
             </p>
         </div>
         </form>
