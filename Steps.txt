@@ -41,3 +41,13 @@
 10. Then Drag and drop the layout and forms  create CSS/JS/Images in Public Folder
 11. change locations of files into asset form 
 12. create a route in api.php and make AJAX request POST to /api/actors
+13. Create route in api.php and make AJAX request POST to /api/username
+14. Email:
+        1. >> php artisan make:controller MailController
+        2. Create Route to use controller function
+        3. create mail type >> php artisan make:mail Register
+        4. set in envelope the Subject and if you need also the sender email
+        5. go to Controller and send the email 
+        6. Mail::to('abdelrahmansayed171@gmail.com')->send(new Register());
+        7. set Configuration in .env
+        8. enable 2-step verfication then generate app password and grab it into mail password in .env

@@ -3,6 +3,7 @@
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,7 @@ Route::post('/authenticate', function (Request $request) {
     }
 });
 
+Route::get('/sendmail/{username}', [MailController::class, 'sendMail']);
 
 
 
