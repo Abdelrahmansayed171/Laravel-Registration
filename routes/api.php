@@ -28,7 +28,7 @@ Route::post('/actors', function(Request $request){
     error_log($month);
     error_log($day);
 
-    return response()->json(GetNames($month,$day));
+    return response()->json(getNames($month,$day));
 });
 
 
@@ -53,7 +53,7 @@ Route::post('/username', function(Request $request){
 
 
 
-function GetNames($month, $day){
+function getNames($month, $day){
 
     $curl = curl_init();
 

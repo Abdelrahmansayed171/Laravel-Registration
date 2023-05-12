@@ -65,3 +65,6 @@
             'phone' => fake()->phoneNumber(),
         4. put in DatabaseSeeder >> Customer::factory(10)->create();
         5. php artisan migrate:refresh --seed
+        6. php artisan make:test RegisterTest
+        7. Create test function then 
+        8. php artisan test
