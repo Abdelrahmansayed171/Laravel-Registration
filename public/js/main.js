@@ -261,6 +261,7 @@ function AJAXSerNameValidation() {
       } else {
         document.querySelector(".true").classList.add("hide");
         document.querySelector(".false").classList.remove("hide");
+        alert('UserName already Exist!');
         // window.alert("false");
       }
     }

@@ -3,6 +3,7 @@
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::get('customer/{id}', function($id){
 });
 
 
+
 Route::post('/register', function (Request $request) {
     // dd($request);
     $validatedData = $request->validate([
@@ -43,7 +45,7 @@ Route::post('/register', function (Request $request) {
     ]);
     Customer::create($validatedData);
     $customer = Customer::where('email', $validatedData['email'] )->first();
-    return redirect('/customer/'. $customer->id);
+    return redirect('/sendmail/'. $customer->username);
 });
 
 
@@ -66,6 +68,7 @@ Route::post('/authenticate', function (Request $request) {
     }
 });
 
+Route::get('/sendmail/{username}', [MailController::class, 'sendMail']);
 
 
 

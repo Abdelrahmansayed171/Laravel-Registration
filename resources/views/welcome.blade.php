@@ -106,7 +106,7 @@
             <label for="">confirm password</label>
         </div>
         <div class="input-box">
-            <input type="file" required class="custom-file-input" id="select_image" name="image" onchange="putImage()" />
+            <input type="file" class="custom-file-input" id="select_image" name="image" onchange="putImage()" />
         </div>
         <button type="submit" class="registerBtn" name="submit" value="Register">Register
         </button>
