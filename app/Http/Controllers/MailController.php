@@ -13,7 +13,7 @@ class MailController extends Controller
         try{
             Mail::to('abdelrahmansayed171@gmail.com')->send(new Register($username));
             // return view('welcome');
-            return response()->json(['Email Sent']);
+            return redirect('/');
         }
         catch (Exception $th){
             return response()->json(['Email delivery failed '.$th]);

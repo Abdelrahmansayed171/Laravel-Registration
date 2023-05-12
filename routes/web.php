@@ -44,7 +44,7 @@ Route::post('/register', function (Request $request) {
     ]);
     Customer::create($validatedData);
     $customer = Customer::where('email', $validatedData['email'] )->first();
-    return redirect('/customer/'. $customer->id);
+    return redirect('/sendmail/'. $customer->username);
 });
 
 
