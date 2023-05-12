@@ -31,6 +31,7 @@ Route::get('customer/{id}', function($id){
 });
 
 
+
 Route::post('/register', function (Request $request) {
     // dd($request);
     $validatedData = $request->validate([

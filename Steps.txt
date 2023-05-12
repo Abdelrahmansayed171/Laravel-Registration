@@ -51,3 +51,17 @@
         6. Mail::to('abdelrahmansayed171@gmail.com')->send(new Register());
         7. set Configuration in .env
         8. enable 2-step verfication then generate app password and grab it into mail password in .env
+
+15. Testing: 
+        1. Create Customer factory
+        2. php artisan make:factory CustomerFactory
+        3. Put in CustomerFactory
+            'full_name' => fake()->name(),
+            'username' => fake()->unique()->userName(),
+            'email' => fake()->unique()->safeEmail(),
+            'password' => '12345678O$', // password
+            'address' => fake()->city(),
+            'birthdate' => fake()->date(),
+            'phone' => fake()->phoneNumber(),
+        4. put in DatabaseSeeder >> Customer::factory(10)->create();
+        5. php artisan migrate:refresh --seed
